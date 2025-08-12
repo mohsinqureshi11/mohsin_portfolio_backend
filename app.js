@@ -18,28 +18,59 @@
 
 // export default app;
 
+// import express from "express";
+// import cors from "cors";
+// import contactRoutes from "./src/api/contact.js";
+
+// const app = express();
+
+// const allowedOrigins = [
+//   "https://mohsinqureshiportfolio.netlify.app"
+// ];
+
+// app.use(cors({
+//   origin: allowedOrigins,
+//   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//   allowedHeaders: ["Content-Type", "Authorization"],
+//   credentials: true
+// }));
+
+// app.options("*", cors({ origin: allowedOrigins })); // preflight ke liye
+
+// app.use(express.json());
+
+// // API routes
+// app.use("/api/contact", contactRoutes);
+
+// export default app;
+
+
+
+// src/api/contact.js
 import express from "express";
 import cors from "cors";
-import contactRoutes from "./src/api/contact.js";
 
-const app = express();
+const router = express.Router();
 
-const allowedOrigins = [
-  "https://mohsinqureshiportfolio.netlify.app"
-];
+const allowedOrigins = ["https://mohsinqureshiportfolio.netlify.app"];
 
-app.use(cors({
+router.use(cors({
   origin: allowedOrigins,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  methods: ["GET", "POST", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
 
-app.options("*", cors({ origin: allowedOrigins })); // preflight ke liye
+// Preflight handle
+router.options("*", cors({
+  origin: allowedOrigins,
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
 
-app.use(express.json());
+router.post("/", async (req, res) => {
+  res.json({ success: true, message: "Message sent" });
+});
 
-// API routes
-app.use("/api/contact", contactRoutes);
-
-export default app;
+export default router;
