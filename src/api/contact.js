@@ -1,4 +1,4 @@
-import { sendEmail } from "../helper/mailer.js";
+import { sendMail } from "../helper/mailer.js";
 import { successResponse, errorResponse } from "../response/responseHandler.js";
 
 export default async function handler(req, res) {
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    await sendEmail({
+    await sendMail({
       from: email,
       to: process.env.RECEIVER_EMAIL,
       subject: `Contact form message from ${name}`,
