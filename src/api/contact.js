@@ -1,11 +1,10 @@
+import express from "express";
 import { sendMail } from "../helper/mailer.js";
 import { successResponse, errorResponse } from "../response/responseHandler.js";
 
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return errorResponse(res, "Method Not Allowed", 405);
-  }
+const router = express.Router();
 
+router.post("/", async (req, res) => {
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
@@ -25,4 +24,6 @@ export default async function handler(req, res) {
     console.error("Email sending error:", err);
     return errorResponse(res, "Failed to send message");
   }
-}
+});
+
+export default router;
