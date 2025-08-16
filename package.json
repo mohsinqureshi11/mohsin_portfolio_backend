@@ -6,6 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "start": "node app.js",
+  "vercel-build": "npm run build"
+},
+
   "keywords": [],
   "author": "",
   "license": "ISC",
