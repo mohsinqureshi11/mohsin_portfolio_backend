@@ -4,9 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
   "dev": "vite",
   "build": "vite build",
   "start": "node app.js",
