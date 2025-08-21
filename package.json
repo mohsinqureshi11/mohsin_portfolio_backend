@@ -5,12 +5,11 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-  "dev": "vite",
-  "build": "vite build",
-  "start": "node app.js",
-  "vercel-build": "npm run build"
-},
-
+    "dev": "vite",
+    "build": "vite build",
+    "start": "node app.js",
+    "vercel-build": "npm run build"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -19,6 +18,7 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
+    "http": "^0.0.1-security",
     "nodemailer": "^7.0.5"
   }
 }
